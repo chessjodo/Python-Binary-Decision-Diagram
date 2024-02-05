@@ -1,0 +1,57 @@
+#+TITLE: Binary Decision Diagrams
+
+The file [[./decider.py]] is a script which implements a Boolean function of three variables. It can be run from the command line. It accepts the values =0= and =1= for /false/ and /true/.
+#+begin_src shell
+$ ./decider.py 1 0 1
+1
+$ ./decider.py 1 0 0
+0
+$
+#+end_src
+
+The file [[./decision_table.py]] generates a random Boolean function of a given number of variables (3 by default).
+#+begin_src shell
+$ ./decision_table.py
+| a | b | c ||   |
+| 0 | 0 | 0 || 0 |
+| 0 | 0 | 1 || 0 |
+| 0 | 1 | 0 || 1 |
+| 0 | 1 | 1 || 0 |
+| 1 | 0 | 0 || 0 |
+| 1 | 0 | 1 || 0 |
+| 1 | 1 | 0 || 0 |
+| 1 | 1 | 1 || 1 |
+$ ./decision_table.py --help
+
+ Usage: decision_table.py [OPTIONS]
+
+ Write a decision table over VARS variables with random outputs, either of type Boolean, i.e. 0 or 1, or of integers in the range [0,outputs).
+
+╭─ Options ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --vars           INTEGER  [default: 3]                                                                                                                                                      │
+│ --outputs        INTEGER  [default: 2]                                                                                                                                                      │
+│ --help                    Show this message and exit.                                                                                                                                       │
+╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+$ ./decision_table.py --vars 4
+| a | b | c | d ||   |
+| 0 | 0 | 0 | 0 || 1 |
+| 0 | 0 | 0 | 1 || 1 |
+| 0 | 0 | 1 | 0 || 0 |
+| 0 | 0 | 1 | 1 || 1 |
+| 0 | 1 | 0 | 0 || 1 |
+| 0 | 1 | 0 | 1 || 1 |
+| 0 | 1 | 1 | 0 || 1 |
+| 0 | 1 | 1 | 1 || 0 |
+| 1 | 0 | 0 | 0 || 0 |
+| 1 | 0 | 0 | 1 || 0 |
+| 1 | 0 | 1 | 0 || 1 |
+| 1 | 0 | 1 | 1 || 1 |
+| 1 | 1 | 0 | 0 || 1 |
+| 1 | 1 | 0 | 1 || 0 |
+| 1 | 1 | 1 | 0 || 0 |
+| 1 | 1 | 1 | 1 || 1 |
+$
+#+end_src
+
+The file [[./compile-decision_table.py]]  is a script which takes the output of [[./decision_table.py]] and generates a Python script which implements the given Boolean function.
