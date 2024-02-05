@@ -56,3 +56,4 @@ $
 
 The file [[./compile_decision_table.py]]  is a script which takes the output of [[./decision_table.py]] and generates a Python script which implements the given Boolean function.
 
+The file[[./compile_decision_table_disjuncts.py]] is a script which is potentially more efficient than  [[./compile_decision_table.py]]  since it writes an ~if~ branch only for those combinations of variables which give a /true/ output.
