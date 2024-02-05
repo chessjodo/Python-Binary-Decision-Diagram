@@ -54,4 +54,5 @@ $ ./decision_table.py --vars 4
 $
 #+end_src
 
-The file [[./compile-decision_table.py]]  is a script which takes the output of [[./decision_table.py]] and generates a Python script which implements the given Boolean function.
+The file [[./compile_decision_table.py]]  is a script which takes the output of [[./decision_table.py]] and generates a Python script which implements the given Boolean function.
+
